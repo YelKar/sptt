@@ -463,10 +463,25 @@ async function getLoggedUserId() {
     return result.userId;
 }
 
-XMLHttpRequest.prototype.open = function() {};
+function interruptAllRequests() {
+    XMLHttpRequest.prototype.open = function() {};
+}
 
-window.addEventListener("load", () => {
-    rootNode = document.querySelector("#calendar");
-    initPage();
-    updateTimetable();
-})
+function init(nodeSelector) {
+    window.addEventListener("load", () => {
+        rootNode = document.querySelector(nodeSelector);
+        initPage();
+        updateTimetable();
+    })
+}
+
+function importTimetableStyles(type) {
+    switch (type) {
+        case "default":
+            import("./style.css");
+            break;
+    }
+}
+
+window.initTimetable = init;
+window.importTimetableStyles = importTimetableStyles;
