@@ -457,7 +457,7 @@ async function getLoggedUserId() {
     if (userId !== undefined) {
         return userId;
     }
-    const response = fetch("https://portal.ispring.institute/api/v1/logged-user/get");
+    const response = await fetch("https://portal.ispring.institute/api/v1/logged-user/get");
     const result = await response.json();
     userId = result.userId;
     return result.userId;
