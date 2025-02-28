@@ -1,3 +1,5 @@
+import "./style.css"
+
 let isInitialized = false;
 let rootNode;
 let userId;
