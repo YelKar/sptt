@@ -475,13 +475,4 @@ function init(nodeSelector) {
     })
 }
 
-function importTimetableStyles(type) {
-    switch (type) {
-        case "default":
-            import("./style.css");
-            break;
-    }
-}
-
 window.initTimetable = init;
-window.importTimetableStyles = importTimetableStyles;
