@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --header-height: 50px;
+  --scrollbar-width: 12px;
+  --toast-height: 50px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: white;
+}
+
+.timetable {
+  --timetable-margin-block: 20px;
+  box-sizing: border-box;
+  width: min-content;
+  margin: var(--timetable-margin-block) auto;
+  box-shadow: 0 0 5px 0 #0005;
+  border-radius: 10px;
+  padding: 1px;
+  overflow-y: scroll;
+  height: calc(
+          100vh - var(--header-height) * 2 - var(--timetable-margin-block) * 3
+  );
+  min-width: 500px;
+}
+
+::selection {
+  color: white;
+  background-color: #1a9898;
+}
+
+@media screen and (min-width: 1200px) {
+  .timetable {
+    display: flex;
+    flex-direction: row;
+    width: min-content;
+    max-width: calc(100vw - 280px - 30px - 40px);
+    margin: var(--timetable-margin-block) auto;
+  }
+}
+
+.timetable-day {
+  width: 500px;
+  max-width: 500px;
+  min-width: 500px;
+}
+
+.timetable-day__title {
+  text-align: center;
+  margin-block-start: 20px;
+  font-size: 20px;
+}
+
+.timetable-card {
+  text-align: start;
+  margin: 15px calc(15px - var(--scrollbar-width)) 15px 15px;
+  box-shadow: 0 0 5px 0 #0005;
+  border-radius: 10px;
+  padding: 15px;
+  width: auto;
+  min-height: 132px;
+  box-sizing: border-box;
+}
+
+.timetable-card__functional-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.timetable-card__title {
+  font-size: 20px;
+  height: 50px;
+}
+
+.timetable-card__time {
+  font-size: 15px;
+  color: #777;
+  text-align: end;
+  margin-block-end: 15px;
+}
+
+.timetable-card__teacher {
+  font-size: 15px;
+}
+
+.timetable-card__type {
+  margin-inline-start: 20px;
+}
+
+.timetable-card__type:empty,
+.timetable-card__location:empty {
+  display: none;
+}
+
+.timetable-card__location::selection,
+.timetable-card__type::selection,
+.export-calendar-button::selection,
+.mode-selection label.mode-selection__button:has(input:checked)::selection {
+  background-color: white;
+  color: #ff603d;
+}
+
+.badge {
+  font-size: 10px;
+  border-radius: 20px;
+  padding: 3px 10px;
+  height: min-content;
+  background-color: #ff603d;
+  color: white;
+  font-weight: bold;
+}
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff603d;
+  border-radius: 6px;
+  border: 2px solid white;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e05530;
+}
+
+@-moz-document url-prefix() {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #ff603d transparent;
+  }
+}
+
+.toast {
+  position: fixed;
+  height: var(--toast-height);
+  bottom: calc(-1 * var(--toast-height));
+  left: 0;
+  width: 100vw;
+  animation: toastAnimation 4s normal ease-in-out;
+}
+
+.toast::before {
+  height: 100%;
+  content: attr(data-content);
+  display: block;
+  border-radius: 10px;
+  margin: 0 auto;
+  color: white;
+  padding: 0 15px;
+  line-height: var(--toast-height);
+  background-color: #ff502d;
+  width: calc(100% - 200px);
+  max-width: 700px;
+  min-width: 500px;
+  text-align: center;
+}
+
+@keyframes toastAnimation {
+  0% {
+    bottom: calc(-1 * var(--toast-height));
+  }
+  20% {
+    bottom: 0;
+  }
+  80% {
+    bottom: 0;
+  }
+  100% {
+    bottom: calc(-1 * var(--toast-height));
+  }
+}
+
+.mode-selection {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin: 10px auto;
+  width: min-content;
+  box-shadow: 0 0 5px 0 #0005;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.mode-selection input {
+  display: none;
+}
+
+.mode-selection label.mode-selection__button {
+  text-align: center;
+  padding: 7px 15px;
+  margin: 5px;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.mode-selection label.mode-selection__button:hover:not(:has(input:checked)) {
+  background-color: #0001;
+}
+
+.mode-selection label.mode-selection__button:has(input:checked) {
+  background-color: #ff603d;
+  color: white;
+  font-weight: 600;
+}
+
+.mode-selection__arrow-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  margin: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mode-selection__arrow-button:hover {
+  background-color: #0001;
+}
+
+.mode-selection__arrow-button:active {
+  background-color: #0002;
+}
+
+.mode-selection__arrow-button svg {
+  fill: black;
+}
+
+.mode-selection__previous-button:not(
+    :has(
+        ~ label.mode-selection__button input:checked[value="tomorrow"]
+    )
+),
+.mode-selection__previous-button:not(
+    :has(
+        ~ label.mode-selection__button input:checked[value="tomorrow"]
+    )
+) ~ .mode-selection__next-button {
+  display: flex;
+}
+
+#export-calendar-button {
+  display: none;
+}
+
+.export-calendar-button {
+  background-color: #ff603d;
+  color: white;
+  padding: 3px 15px 3px 10px;
+  font-weight: bold;
+  outline: none;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.export-calendar-button:hover {
+  background-color: #df5022;
+}
+
+.export-calendar-button svg {
+  vertical-align: middle;
+  margin: 0 10px 0 0;
+}
