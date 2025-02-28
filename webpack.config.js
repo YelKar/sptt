@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     entry: './script.js', // Главный файл
     output: {
-        filename: 'module.js', // Имя выходного JS-файла
+        filename: 'sptt.js', // Имя выходного JS-файла
         path: path.resolve(__dirname, ''), // Папка для результата
     },
     mode: 'production', // Режим production для минификации
