@@ -25,6 +25,7 @@
   box-shadow: var(--default-box-shadow);
   border: none;
   transition: max-height 0.5s;
+  width: max-content;
 }
 
 .admin-nav-menu {
