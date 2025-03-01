@@ -32,6 +32,7 @@
   gap: 10px;
   overflow: unset;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 .admin-nav__element {
