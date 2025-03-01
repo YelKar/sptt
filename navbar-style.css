@@ -26,6 +26,7 @@
   border: none;
   transition: max-height 0.5s;
   width: max-content;
+  min-width: 300px;
 }
 
 .admin-nav-menu {
