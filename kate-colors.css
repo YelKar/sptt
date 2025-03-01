@@ -16,7 +16,7 @@
   --timetable-card-background-color: white;
   --timetable-card-time-color: #777;
 
-  --badge-background-color: #ff0099;
+  --badge-background-color: var(--accent-color);
   --badge-text-color: white;
 
   --scrollbar-color: var(--accent-color);
