@@ -1,6 +1,5 @@
 :root {
   --accent-color: #FF0099;
-  --accent-hover-color: #F30092;
   --error-color: #ff502d;
 
   --selection-text-color: white;
@@ -20,7 +19,6 @@
   --badge-text-color: white;
 
   --scrollbar-color: var(--accent-color);
-  --scrollbar-hover-color: var(--accent-hover-color);
 
   --mode-selection-button-background-color: white;
   --mode-selection-button-hover-background-color: #0001;

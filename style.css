@@ -143,7 +143,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--scrollbar-hover-color);
+  background: var(--scrollbar-color);
+  filter: brightness(90%);
 }
 
 ::-webkit-scrollbar-corner {
@@ -249,7 +250,8 @@ body {
 }
 
 .export-calendar-button:hover {
-  background-color: var(--accent-hover-color);
+  background-color: var(--accent-color);
+  filter: brightness(90%);
 }
 
 .export-calendar-button svg {
