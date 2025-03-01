@@ -1,0 +1,16 @@
+.admin-nav__element_active::before {
+  background-color: var(--accent-color);
+}
+
+.admin-nav {
+  background-color: var(--timetable-background-color);
+}
+
+.admin-nav__element {
+  background-color: var(--timetable-background-color);
+}
+
+.admin-nav__element:hover {
+  background-color: var(--timetable-background-color);
+  filter: brightness(95%);
+}
