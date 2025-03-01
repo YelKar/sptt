@@ -1,0 +1,27 @@
+:root {
+  --accent-color: #ff603d;
+  --error-color: #ff502d;
+
+  --selection-text-color: white;
+  --selection-background-color: var(--accent-color);
+  --selection-badge-text-color: var(--badge-background-color);
+  --selection-badge-background-color: var(--badge-text-color);
+
+  --default-box-shadow: 0 0 5px 0 #0005;
+  --timetable-box-shadow: var(--default-box-shadow);
+  --timetable-card-box-shadow: var(--default-box-shadow);
+
+  --timetable-background-color: white;
+  --timetable-card-background-color: white;
+  --timetable-card-time-color: #777;
+
+  --badge-background-color: var(--accent-color);
+  --badge-text-color: white;
+
+  --scrollbar-color: var(--accent-color);
+
+  --mode-selection-button-background-color: white;
+  --mode-selection-button-hover-background-color: #0001;
+  --mode-selection-button-checked-background-color: var(--accent-color);
+  --mode-selection-button-checked-text-color: white;
+}
