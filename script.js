@@ -1,3 +1,12 @@
+import {
+    downloadIcon,
+    leftArrIcon,
+    rightArrIcon,
+    preloader,
+    instituteLogo,
+} from "./icons";
+
+
 let isInitialized = false;
 let rootNode;
 let userId;
@@ -46,27 +55,12 @@ const tableCardHTML = `
 </div>
 `;
 
-const downloadIcon = `
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
-`;
-
-const leftArrIcon = `
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" ><path d="M640-80 240-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
-`
-;
-
-const rightArrIcon = `
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" ><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
-`;
-
-const preloader = `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="24px" height="24px"><radialGradient id="a8" cx=".66" fx=".66" cy=".3125" fy=".3125" gradientTransform="scale(1.5)"><stop offset="0" stop-color="#ff603d"></stop><stop offset=".3" stop-color="#ff603d" stop-opacity=".9"></stop><stop offset=".6" stop-color="#ff603d" stop-opacity=".6"></stop><stop offset=".8" stop-color="#ff603d" stop-opacity=".3"></stop><stop offset="1" stop-color="#ff603d" stop-opacity="0"></stop></radialGradient><circle transform-origin="center" fill="none" stroke="url(#a8)" stroke-width="15" stroke-linecap="round" stroke-dasharray="200 1000" stroke-dashoffset="0" cx="100" cy="100" r="70"><animateTransform type="rotate" attributeName="transform" calcMode="spline" dur="2" values="360;0" keyTimes="0;1" keySplines="0 0 1 1" repeatCount="indefinite"></animateTransform></circle><circle transform-origin="center" fill="none" opacity=".2" stroke="#ff603d" stroke-width="15" stroke-linecap="round" cx="100" cy="100" r="70"></circle></svg>
-`;
 
 function initPage() {
     if (isInitialized) {
         return;
     }
+    document.querySelector(".header__logo").innerHTML = instituteLogo;
     isInitialized = true;
     rootNode.innerHTML = defaultHTML;
     const tt = document.querySelector(".timetable");
@@ -467,7 +461,10 @@ function interruptAllRequests() {
     XMLHttpRequest.prototype.open = function() {};
 }
 
-function init(nodeSelector) {
+function init(nodeSelector, interruptOtherRequests=false) {
+    if (interruptOtherRequests) {
+        interruptAllRequests();
+    }
     window.addEventListener("load", () => {
         rootNode = document.querySelector(nodeSelector);
         initPage();

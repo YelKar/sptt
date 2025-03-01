@@ -14,3 +14,7 @@
   background-color: var(--timetable-background-color);
   filter: brightness(95%);
 }
+
+.institute-logo {
+  fill: var(--logo-color);
+}

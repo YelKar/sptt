@@ -24,4 +24,6 @@
   --mode-selection-button-hover-background-color: #0001;
   --mode-selection-button-checked-background-color: var(--accent-color);
   --mode-selection-button-checked-text-color: white;
+
+  --logo-color: var(--accent-color);
 }
