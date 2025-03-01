@@ -25,13 +25,13 @@
   box-shadow: var(--default-box-shadow);
   border: none;
   transition: max-height 0.5s;
-  padding: 10px;
 }
 
 .admin-nav-menu {
   background-color: var(--timetable-background-color);
   gap: 10px;
   overflow: unset;
+  padding: 10px;
 }
 
 .admin-nav__element {
