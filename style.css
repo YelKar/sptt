@@ -22,19 +22,19 @@ body {
   box-sizing: border-box;
   width: min-content;
   margin: var(--timetable-margin-block) auto;
-  box-shadow: 0 0 5px 0 #0005;
+  box-shadow: var(--timetable-box-shadow);
   border-radius: 10px;
   padding: 1px;
+  background-color: var(--timetable-background-color);
   overflow-y: scroll;
   height: calc(
           100vh - var(--header-height) * 2 - var(--timetable-margin-block) * 3
   );
-  min-width: 500px;
 }
 
 ::selection {
-  color: white;
-  background-color: #1a9898;
+  color: var(--selection-text-color);
+  background-color: var(--selection-background-color);
 }
 
 @media screen and (min-width: 1200px) {
@@ -62,10 +62,11 @@ body {
 .timetable-card {
   text-align: start;
   margin: 15px calc(15px - var(--scrollbar-width)) 15px 15px;
-  box-shadow: 0 0 5px 0 #0005;
+  box-shadow: var(--timetable-card-box-shadow);
   border-radius: 10px;
   padding: 15px;
   width: auto;
+  background-color: var(--timetable-card-background-color);
   min-height: 132px;
   box-sizing: border-box;
 }
@@ -83,7 +84,7 @@ body {
 
 .timetable-card__time {
   font-size: 15px;
-  color: #777;
+  color: var(--timetable-card-time-color);
   text-align: end;
   margin-block-end: 15px;
 }
@@ -105,8 +106,8 @@ body {
 .timetable-card__type::selection,
 .export-calendar-button::selection,
 .mode-selection label.mode-selection__button:has(input:checked)::selection {
-  background-color: white;
-  color: #ff603d;
+  color: var(--selection-badge-text-color);
+  background-color: var(--selection-badge-background-color);
 }
 
 .badge {
@@ -114,13 +115,21 @@ body {
   border-radius: 20px;
   padding: 3px 10px;
   height: min-content;
-  background-color: #ff603d;
+  background-color: #ff0099;
   color: white;
   font-weight: bold;
+  min-width: 60px;
+  text-align: center;
+}
+
+.badge::selection {
+  color: var(--selection-badge-text-color);
+  background-color: var(--selection-badge-background-color);
 }
 
 ::-webkit-scrollbar {
   width: var(--scrollbar-width);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-track {
@@ -128,19 +137,25 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ff603d;
+  background: var(--scrollbar-color);
   border-radius: 6px;
-  border: 2px solid white;
+  border: 2px solid var(--timetable-background-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #e05530;
+  background: var(--scrollbar-hover-color);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--scrollbar-color);
+  border-radius: 50%;
+  border: 2px solid var(--timetable-background-color);
 }
 
 @-moz-document url-prefix() {
   * {
     scrollbar-width: thin;
-    scrollbar-color: #ff603d transparent;
+    scrollbar-color: var(--scrollbar-color) transparent;
   }
 }
 
@@ -162,7 +177,7 @@ body {
   color: white;
   padding: 0 15px;
   line-height: var(--toast-height);
-  background-color: #ff502d;
+  background-color: var(--error-color);
   width: calc(100% - 200px);
   max-width: 700px;
   min-width: 500px;
@@ -187,7 +202,6 @@ body {
 .mode-selection {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
   margin: 10px auto;
   width: min-content;
   box-shadow: 0 0 5px 0 #0005;
@@ -203,56 +217,20 @@ body {
   text-align: center;
   padding: 7px 15px;
   margin: 5px;
-  background-color: white;
+  background-color: var(--mode-selection-button-background-color);
   cursor: pointer;
   border-radius: 8px;
   transition: background-color 0.2s;
 }
 
 .mode-selection label.mode-selection__button:hover:not(:has(input:checked)) {
-  background-color: #0001;
+  background-color: var(--mode-selection-button-hover-background-color);
 }
 
 .mode-selection label.mode-selection__button:has(input:checked) {
-  background-color: #ff603d;
-  color: white;
+  background-color: var(--mode-selection-button-checked-background-color);
+  color: var(--mode-selection-button-checked-text-color);
   font-weight: 600;
-}
-
-.mode-selection__arrow-button {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 0 5px;
-  margin: 5px;
-  border-radius: 8px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.mode-selection__arrow-button:hover {
-  background-color: #0001;
-}
-
-.mode-selection__arrow-button:active {
-  background-color: #0002;
-}
-
-.mode-selection__arrow-button svg {
-  fill: black;
-}
-
-.mode-selection__previous-button:not(
-    :has(
-        ~ label.mode-selection__button input:checked[value="tomorrow"]
-    )
-),
-.mode-selection__previous-button:not(
-    :has(
-        ~ label.mode-selection__button input:checked[value="tomorrow"]
-    )
-) ~ .mode-selection__next-button {
-  display: flex;
 }
 
 #export-calendar-button {
@@ -260,8 +238,8 @@ body {
 }
 
 .export-calendar-button {
-  background-color: #ff603d;
-  color: white;
+  background-color: var(--badge-background-color);
+  color: var(--badge-text-color);
   padding: 3px 15px 3px 10px;
   font-weight: bold;
   outline: none;
@@ -271,7 +249,7 @@ body {
 }
 
 .export-calendar-button:hover {
-  background-color: #df5022;
+  background-color: var(--accent-hover-color);
 }
 
 .export-calendar-button svg {
