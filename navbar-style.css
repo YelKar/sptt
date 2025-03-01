@@ -20,7 +20,6 @@
 }
 
 .admin-nav {
-  font: var(--font) !important;
   margin-block: 15px;
   border-radius: 0 10px 10px 0;
   box-shadow: var(--default-box-shadow);
@@ -37,6 +36,7 @@
 
 .admin-nav__element {
   border-radius: 10px;
+  font: var(--font) !important;
 }
 
 .admin-nav__element_active {
