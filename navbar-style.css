@@ -89,6 +89,6 @@
     max-height: 0;
   }
   .admin-nav-active {
-    max-height: 300px;
+    max-height: 500px;
   }
 }
