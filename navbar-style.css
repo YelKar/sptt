@@ -56,6 +56,7 @@
 .admin-nav__title {
   font-family: var(--font), sans-serif !important;
   line-height: 45px;
+  padding-inline: 26px;
 }
 
 .calendar {
