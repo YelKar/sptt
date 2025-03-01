@@ -234,6 +234,42 @@ body {
   font-weight: 600;
 }
 
+.mode-selection__arrow-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  margin: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mode-selection__arrow-button:hover {
+  background-color: #0001;
+}
+
+.mode-selection__arrow-button:active {
+  background-color: #0002;
+}
+
+.mode-selection__arrow-button svg {
+  fill: black;
+}
+
+.mode-selection__previous-button:not(
+    :has(
+        ~ label.mode-selection__button input:checked[value="tomorrow"]
+    )
+),
+.mode-selection__previous-button:not(
+    :has(
+        ~ label.mode-selection__button input:checked[value="tomorrow"]
+    )
+) ~ .mode-selection__next-button {
+  display: flex;
+}
+
 #export-calendar-button {
   display: none;
 }
