@@ -115,8 +115,8 @@ body {
   border-radius: 20px;
   padding: 3px 10px;
   height: min-content;
-  background-color: #ff0099;
-  color: white;
+  background-color: var(--badge-background-color);
+  color: var(--badge-text-color);
   font-weight: bold;
   min-width: 60px;
   text-align: center;
@@ -204,7 +204,7 @@ body {
   flex-direction: row;
   margin: 10px auto;
   width: min-content;
-  box-shadow: 0 0 5px 0 #0005;
+  box-shadow: var(--default-box-shadow);
   overflow: hidden;
   border-radius: 10px;
 }
