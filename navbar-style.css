@@ -36,7 +36,6 @@
 
 .admin-nav__element {
   border-radius: 10px;
-  font: var(--font) !important;
 }
 
 .admin-nav__element_active {
@@ -54,6 +53,7 @@
 }
 
 .admin-nav__title {
+  font-family: var(--font), sans-serif !important;
   line-height: 45px;
 }
 
