@@ -18,3 +18,74 @@
 .institute-logo {
   fill: var(--logo-color);
 }
+
+.admin-nav {
+  font: var(--font) !important;
+  margin-block: 15px;
+  border-radius: 0 10px 10px 0;
+  box-shadow: var(--default-box-shadow);
+  border: none;
+  transition: max-height 0.5s;
+  padding: 10px;
+}
+
+.admin-nav-menu {
+  background-color: var(--timetable-background-color);
+  gap: 10px;
+  overflow: unset;
+}
+
+.admin-nav__element {
+  border-radius: 10px;
+}
+
+.admin-nav__element_active {
+  background-color: var(--mode-selection-button-checked-background-color);
+  color: var(--mode-selection-button-checked-text-color) !important;
+}
+
+.admin-nav__element_active:hover {
+  background-color: var(--mode-selection-button-checked-background-color);
+  filter: brightness(90%);
+}
+
+.admin-nav__element::before {
+  display: none;
+}
+
+.admin-nav__title {
+  line-height: 45px;
+}
+
+.calendar {
+  border: none;
+}
+
+.header {
+  margin-inline: 15px;
+  border: none;
+  box-shadow: var(--default-box-shadow);
+  width: auto;
+  border-radius: 0 0 10px 10px;
+}
+
+@media screen and (max-width: 965px) {
+  .admin-nav {
+    max-width: none;
+    display: block;
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    width: auto;
+    margin: 15px;
+    border-radius: 10px;
+  }
+  .admin-nav-close {
+    max-height: 0;
+    padding: 0;
+  }
+  .admin-nav-active {
+    max-height: 300px;
+  }
+}
