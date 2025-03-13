@@ -60,3 +60,56 @@
   border-radius: 50%;
   border: 1px solid var(--accent-color);
 }
+
+.preloader {
+  fill: var(--accent-color);
+}
+
+#calendar.wait, #calendar.wait * {
+  animation: 1s infinite linear WaitCursor;
+}
+
+@keyframes WaitCursor {
+  0% {
+    cursor: url("./waitCursor/kate-wait-cursor_1.png"), auto;
+  }
+  7.7% {
+    cursor: url("./waitCursor/kate-wait-cursor_2.png"), auto;
+  }
+  15.4% {
+    cursor: url("./waitCursor/kate-wait-cursor_3.png"), auto;
+  }
+  23% {
+    cursor: url("./waitCursor/kate-wait-cursor_4.png"), auto;
+  }
+  30.8% {
+    cursor: url("./waitCursor/kate-wait-cursor_5.png"), auto;
+  }
+  38.5% {
+    cursor: url("./waitCursor/kate-wait-cursor_6.png"), auto;
+  }
+  46.2% {
+    cursor: url("./waitCursor/kate-wait-cursor_7.png"), auto;
+  }
+  53.8% {
+    cursor: url("./waitCursor/kate-wait-cursor_8.png"), auto;
+  }
+  61.5% {
+    cursor: url("./waitCursor/kate-wait-cursor_9.png"), auto;
+  }
+  69.2% {
+    cursor: url("./waitCursor/kate-wait-cursor_10.png"), auto;
+  }
+  76.9% {
+    cursor: url("./waitCursor/kate-wait-cursor_11.png"), auto;
+  }
+  84.6% {
+    cursor: url("./waitCursor/kate-wait-cursor_12.png"), auto;
+  }
+  92.3% {
+    cursor: url("./waitCursor/kate-wait-cursor_13.png"), auto;
+  }
+  100% {
+    cursor: url("./waitCursor/kate-wait-cursor_14.png"), auto;
+  }
+}

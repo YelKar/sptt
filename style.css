@@ -296,3 +296,15 @@ body {
   vertical-align: middle;
   margin: 0 10px 0 0;
 }
+
+#calendar.wait, #calendar.wait * {
+  cursor: wait;
+}
+
+.preloader {
+  display: inline-block;
+}
+
+.preloaderContainer {
+  text-align: center;
+}

@@ -2,8 +2,9 @@ import {
     downloadIcon,
     leftArrIcon,
     rightArrIcon,
-    preloader,
+    preloaderButton,
     instituteLogo,
+    preloader,
 } from "./icons";
 
 
@@ -60,7 +61,9 @@ function initPage() {
     if (isInitialized) {
         return;
     }
-    document.querySelector(".header__logo").innerHTML = instituteLogo;
+    if (typeof instituteLogo != 'undefined' && document.querySelector(".header__logo")) {
+        document.querySelector(".header__logo").innerHTML = instituteLogo;
+    }
     isInitialized = true;
     rootNode.innerHTML = defaultHTML;
     const tt = document.querySelector(".timetable");
@@ -72,6 +75,10 @@ function initPage() {
     for (let i = 0; i < (timetableModel.mode.name == "week" ? 4 : 0); i ++) {
         tt.appendChild(day.cloneNode(true));
     }
+    const preloaderContainer = document.createElement("div");
+    preloaderContainer.classList.add("preloaderContainer");
+    preloaderContainer.innerHTML = preloader;
+    tt.appendChild(preloaderContainer);
     rootNode.insertBefore(createModeSelectionPanel(), tt);
     initExportCalendarButton();
 }
@@ -84,7 +91,7 @@ function initExportCalendarButton() {
             document.querySelector("#export-calendar-button").click();
         }
 
-        btn.innerHTML = `${downloadIcon} Экспортировать расписание`;
+        btn.innerHTML = `${typeof downloadIcon != 'undefined' ? downloadIcon : ""} Экспортировать расписание`;
         document.querySelector(".header__account-info").insertBefore(
             btn,
             document.querySelector(".header__account-log-out"),
@@ -104,13 +111,13 @@ function createModeSelectionPanel() {
     const prevButton = document.createElement("div");
     prevButton.classList.add("mode-selection__previous-button");
     prevButton.classList.add("mode-selection__arrow-button");
-    prevButton.innerHTML = leftArrIcon;
+    prevButton.innerHTML = typeof leftArrIcon != 'undefined' ? leftArrIcon : "<";
     prevButton.onclick = decrementState;
 
     const nextButton = document.createElement("div");
     nextButton.classList.add("mode-selection__next-button");
     nextButton.classList.add("mode-selection__arrow-button");
-    nextButton.innerHTML = rightArrIcon;
+    nextButton.innerHTML = typeof rightArrIcon != 'undefined' ? rightArrIcon : ">";
     nextButton.onclick = incrementState;
 
     panel.appendChild(prevButton);
@@ -228,8 +235,9 @@ function renderTimetable() {
 
     dayBtnNode.querySelector("input").checked = dayBtnState;
 
-    document.querySelector(".mode-selection__previous-button").innerHTML = leftArrIcon;
-    document.querySelector(".mode-selection__next-button").innerHTML = rightArrIcon;
+    rootNode.classList.remove("wait");
+    document.querySelector(".mode-selection__previous-button").innerHTML = typeof leftArrIcon != 'undefined' ? leftArrIcon : "<";
+    document.querySelector(".mode-selection__next-button").innerHTML = typeof rightArrIcon != 'undefined' ? rightArrIcon : ">";
 
     const now = new Date();
     switch(timetableModel.mode.name) {
@@ -436,14 +444,18 @@ function renderStateChange() {
 
 function incrementState() {
     timetableModel.mode.state[timetableModel.mode.name] ++;
-    document.querySelector(".mode-selection__next-button").innerHTML = preloader;
+    rootNode.classList.add("wait");
+    if (typeof preloaderButton != 'undefined')
+        document.querySelector(".mode-selection__next-button").innerHTML = preloaderButton;
     renderStateChange();
 
 }
 
 function decrementState() {
     timetableModel.mode.state[timetableModel.mode.name] --;
-    document.querySelector(".mode-selection__previous-button").innerHTML = preloader;
+    rootNode.classList.add("wait");
+    if (typeof preloaderButton != 'undefined')
+        document.querySelector(".mode-selection__previous-button").innerHTML = preloaderButton;
     renderStateChange();
 }
 
@@ -462,11 +474,13 @@ function interruptAllRequests() {
 }
 
 function init(nodeSelector, interruptOtherRequests=false) {
+    console.log("tt");
     if (interruptOtherRequests) {
         interruptAllRequests();
     }
     window.addEventListener("load", () => {
         rootNode = document.querySelector(nodeSelector);
+        rootNode.classList.add("wait");
         initPage();
         updateTimetable();
     })

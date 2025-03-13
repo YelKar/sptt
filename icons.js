@@ -11,7 +11,7 @@ const rightArrIcon = `
 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" ><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
 `;
 
-const preloader = `
+const preloaderButton = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="24px" height="24px"><radialGradient id="a8" cx=".66" fx=".66" cy=".3125" fy=".3125" gradientTransform="scale(1.5)"><stop offset="0" stop-color="#ff603d"></stop><stop offset=".3" stop-color="#ff603d" stop-opacity=".9"></stop><stop offset=".6" stop-color="#ff603d" stop-opacity=".6"></stop><stop offset=".8" stop-color="#ff603d" stop-opacity=".3"></stop><stop offset="1" stop-color="#ff603d" stop-opacity="0"></stop></radialGradient><circle transform-origin="center" fill="none" stroke="url(#a8)" stroke-width="15" stroke-linecap="round" stroke-dasharray="200 1000" stroke-dashoffset="0" cx="100" cy="100" r="70"><animateTransform type="rotate" attributeName="transform" calcMode="spline" dur="2" values="360;0" keyTimes="0;1" keySplines="0 0 1 1" repeatCount="indefinite"></animateTransform></circle><circle transform-origin="center" fill="none" opacity=".2" stroke="#ff603d" stroke-width="15" stroke-linecap="round" cx="100" cy="100" r="70"></circle></svg>
 `;
 
@@ -45,10 +45,65 @@ const instituteLogo = `
 `;
 
 
+const preloader = `
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="preloader">
+    <g mask="url(#mask-1)">
+        <path id="cursor-wait-1" d="M12.714 8.27519H15.791C16.313 8.27519 16.683 7.89876 16.683 7.38364V0.898392C16.683 0.376667 16.306 0.00683594 15.791 0.00683594H12.714C12.192 0.00683594 11.822 0.383271 11.822 0.898392V7.38364C11.796 7.93178 12.172 8.27519 12.714 8.27519Z"/>
+        <path id="cursor-wait-2" d="M8.646 11.7355L10.574 9.31835C10.891 8.9155 10.832 8.39377 10.429 8.05036L5.357 4.01524C4.954 3.69825 4.432 3.75768 4.089 4.16054L2.16 6.57764C1.843 6.98049 1.903 7.50222 2.306 7.84563L7.378 11.8807C7.813 12.1977 8.329 12.1383 8.646 11.7355Z"/>
+        <path id="cursor-wait-3" d="M8.823 17.0386L8.163 14.0469C8.05 13.5252 7.615 13.2676 7.093 13.3865L0.779 14.8262C0.258 14.9385 0 15.3744 0.119 15.8961L0.779 18.8878C0.892 19.4095 1.327 19.667 1.849 19.5482L8.163 18.1085C8.678 17.9896 8.935 17.5603 8.823 17.0386Z"/>
+        <path id="cursor-wait-4" d="M13.088 20.2086L10.328 18.8614C9.839 18.6302 9.35 18.8019 9.146 19.2906L6.352 25.1155C6.121 25.6042 6.293 26.0929 6.788 26.2976L9.548 27.6448C10.037 27.876 10.526 27.7043 10.731 27.2156L13.524 21.3907C13.722 20.9351 13.55 20.4397 13.088 20.2086Z"/>
+        <path id="cursor-wait-5" d="M18.214 18.8882L15.453 20.2355C14.965 20.4666 14.819 20.9553 15.024 21.444L17.851 27.2688C18.082 27.7575 18.57 27.9028 19.059 27.6981L21.82 26.3509C22.308 26.1197 22.454 25.631 22.249 25.1423L19.422 19.3175C19.171 18.8288 18.676 18.6571 18.214 18.8882Z"/>
+        <path id="cursor-wait-6" d="M20.355 14.0077L19.694 16.9993C19.582 17.5211 19.84 17.9503 20.355 18.0692L26.668 19.5089C27.19 19.6212 27.619 19.3636 27.738 18.8485L28.399 15.8568C28.511 15.3351 28.253 14.9058 27.738 14.787L21.425 13.3473C20.929 13.235 20.494 13.4925 20.355 14.0077Z"/>
+        <path id="cursor-wait-7" d="M17.903 9.312L19.831 11.7291C20.148 12.132 20.67 12.1914 21.099 11.8744L26.171 7.83928C26.574 7.52229 26.633 7.00056 26.316 6.57129L24.388 4.15419C24.071 3.75134 23.549 3.6919 23.12 4.0089L18.048 8.04401C17.645 8.38743 17.586 8.88274 17.903 9.312Z"/>
+    </g>
+
+    <defs>
+    <mask id='mask-1' x='0' y='0' width='32' height='32'>
+        <circle
+                cx="14"
+                cy="14"
+                r="6"
+                fill="none"
+                stroke="white"
+                stroke-width="17"
+                stroke-dasharray="0"
+                stroke-dashoffset="9"
+        >
+        <!-- Анимация -->
+            <animate
+                    attributeName="stroke-dasharray"
+                    calcMode="discrete"
+                    values="0 40; 5.5 34.5; 13 27; 18 22; 24 16; 29 11; 35 5; 40 0"
+                    dur=".5s"
+                    repeatCount="1"
+                    id="anim1"
+                    begin="0s; anim2.end"
+            />
+            <animate
+                    attributeName="stroke-dasharray"
+                    calcMode="discrete"
+                    values="40 0; 35 5; 27 13; 22 18; 16.5 23.5; 11 29; 5.5 34.5; 0 40"
+                    dur=".5s"
+                    begin="anim1.end"
+                    id="anim2"
+            />
+            <animate
+                    attributeName="stroke-dashoffset"
+                    calcMode="discrete"
+                    values="9; 4; -4; -9; -14.5; -20; -25.5; -31"
+                    dur=".5s"
+                    begin="anim1.end"
+            />
+    </circle>
+    </mask>
+    </defs>
+</svg>`;
+
 export  {
     downloadIcon,
     leftArrIcon,
     rightArrIcon,
+    preloaderButton,
     preloader,
     instituteLogo,
 }
