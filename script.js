@@ -78,7 +78,7 @@ function initPage() {
     const preloaderContainer = document.createElement("div");
     preloaderContainer.classList.add("preloaderContainer");
     preloaderContainer.innerHTML = preloader;
-    tt.appendChild(preloaderContainer);
+    tt.children[tt.children.length-1].appendChild(preloaderContainer);
     rootNode.insertBefore(createModeSelectionPanel(), tt);
     initExportCalendarButton();
 }
