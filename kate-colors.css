@@ -28,6 +28,9 @@
   --mode-selection-button-checked-text-color: white;
 
   --logo-color: var(--accent-color);
+
+  --cursor-default: url("cursor/default/kate-default.svg") 3 3, auto;
+  --cursor-pointer: url("cursor/pointer/kate-pointer.svg") 3 20, auto;
 }
 
 .admin-nav__account-info::before {
@@ -71,45 +74,45 @@
 
 @keyframes WaitCursor {
   0% {
-    cursor: url("./waitCursor/kate-wait-cursor_1.png") 16 16, auto;
+    cursor: url("cursor/wait/kate-wait-cursor_1.png") 16 16, auto;
   }
   7.7% {
-    cursor: url("./waitCursor/kate-wait-cursor_2.png") 16 16, auto;
+    cursor: url("cursor/wait/kate-wait-cursor_2.png") 16 16, auto;
   }
   15.4% {
-    cursor: url("./waitCursor/kate-wait-cursor_3.png") 16 16, auto;
+    cursor: url("cursor/wait/kate-wait-cursor_3.png") 16 16, auto;
   }
   23% {
-    cursor: url("./waitCursor/kate-wait-cursor_4.png") 16 16, auto;
+    cursor: url("cursor/wait/kate-wait-cursor_4.png") 16 16, auto;
   }
   30.8% {
-    cursor: url("./waitCursor/kate-wait-cursor_5.png") 16 16, auto;
+    cursor: url("cursor/wait/kate-wait-cursor_5.png") 16 16, auto;
   }
   38.5% {
-    cursor: url("./waitCursor/kate-wait-cursor_6.png") 16 16, auto;
+    cursor: url("cursor/wait/kate-wait-cursor_6.png") 16 16, auto;
   }
   46.2% {
-    cursor: url("./waitCursor/kate-wait-cursor_7.png") 16 16, auto;
+    cursor: url("cursor/wait/kate-wait-cursor_7.png") 16 16, auto;
   }
   53.8% {
-    cursor: url("./waitCursor/kate-wait-cursor_8.png") 16 16, auto;
+    cursor: url("cursor/wait/kate-wait-cursor_8.png") 16 16, auto;
   }
   61.5% {
-    cursor: url("./waitCursor/kate-wait-cursor_9.png") 16 16, auto;
+    cursor: url("cursor/wait/kate-wait-cursor_9.png") 16 16, auto;
   }
   69.2% {
-    cursor: url("./waitCursor/kate-wait-cursor_10.png") 16 16, auto;
+    cursor: url("cursor/wait/kate-wait-cursor_10.png") 16 16, auto;
   }
   76.9% {
-    cursor: url("./waitCursor/kate-wait-cursor_11.png") 16 16, auto;
+    cursor: url("cursor/wait/kate-wait-cursor_11.png") 16 16, auto;
   }
   84.6% {
-    cursor: url("./waitCursor/kate-wait-cursor_12.png") 16 16, auto;
+    cursor: url("cursor/wait/kate-wait-cursor_12.png") 16 16, auto;
   }
   92.3% {
-    cursor: url("./waitCursor/kate-wait-cursor_13.png") 16 16, auto;
+    cursor: url("cursor/wait/kate-wait-cursor_13.png") 16 16, auto;
   }
   100% {
-    cursor: url("./waitCursor/kate-wait-cursor_14.png") 16 16, auto;
+    cursor: url("cursor/wait/kate-wait-cursor_14.png") 16 16, auto;
   }
 }

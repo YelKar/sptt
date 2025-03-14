@@ -5,6 +5,8 @@
   --scrollbar-width: 12px;
   --toast-height: 50px;
   --font: 'Montserrat';
+  --cursor-default: default;
+  --cursor-pointer: pointer;
 }
 
 * {
@@ -16,6 +18,9 @@
 body {
   min-height: 100vh;
   background-color: white;
+}
+#calendar {
+  cursor: var(--cursor-default);
 }
 
 .timetable {
@@ -220,7 +225,7 @@ body {
   padding: 7px 15px;
   margin: 5px;
   background-color: var(--mode-selection-button-background-color);
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   border-radius: 8px;
   transition: background-color 0.2s;
 }
@@ -242,7 +247,7 @@ body {
   padding: 0 5px;
   margin: 5px;
   border-radius: 8px;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   user-select: none;
 }
 
@@ -284,7 +289,7 @@ body {
   outline: none;
   border-radius: 8px;
   border: none;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
 }
 
 .export-calendar-button:hover {
