@@ -56,6 +56,11 @@ const tableCardHTML = `
 </div>
 `;
 
+let link = document.createElement("link");
+
+link.rel = "icon";
+link.type = "image/x-icon";
+link.href = "https://yelkar.github.io/sptt/sptt.ico";
 
 function initPage() {
     if (isInitialized) {
@@ -64,6 +69,7 @@ function initPage() {
     if (typeof instituteLogo != 'undefined' && document.querySelector(".header__logo")) {
         document.querySelector(".header__logo").innerHTML = instituteLogo;
     }
+    document.querySelector('head').appendChild(link);
     isInitialized = true;
     rootNode.innerHTML = defaultHTML;
     const tt = document.querySelector(".timetable");
@@ -474,7 +480,6 @@ function interruptAllRequests() {
 }
 
 function init(nodeSelector, interruptOtherRequests=false) {
-    console.log("tt");
     if (interruptOtherRequests) {
         interruptAllRequests();
     }
